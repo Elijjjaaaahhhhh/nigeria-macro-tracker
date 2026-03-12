@@ -157,7 +157,7 @@ def fetch_brent_crude():
         # --- STEP 1: Define date range ---
         # We want 3 years of history
         end_date = datetime.today()
-        start_date = end_date - timedelta(days=3*365)
+        start_date = end_date - timedelta(days=10*365)
         
         # Format dates as strings (yfinance expects 'YYYY-MM-DD')
         start_str = start_date.strftime('%Y-%m-%d')

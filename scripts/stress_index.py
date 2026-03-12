@@ -262,6 +262,7 @@ def calculate_stress_index():
     
     print(f"\nSaved stress index to: {OUTPUT_FILE}")
     print(f"Total months calculated: {len(scores)}")
+    print(f"Earliest stress date: {scores['date'].min()}")
     print(f"\nLatest stress reading:")
     latest = scores.iloc[-1]
     print(f"  Date:   {latest['date']}")
