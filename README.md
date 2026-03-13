@@ -5,7 +5,7 @@ health across 7 key indicators with a composite Economic
 Stress Index (0-100).
 
 ## Live Dashboard
-[View on Microsoft Fabric](<paste your Fabric link here>)
+[View on Microsoft Fabric](https://app.powerbi.com/links/6r1cIiVavp?ctid=72ca12ad-1c5b-400e-a56e-de2f46920121&pbi_source=linkShare)
 
 ## Current Reading
 - Stress Score: 51.73 — AMBER
