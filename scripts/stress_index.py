@@ -259,7 +259,37 @@ def calculate_stress_index():
     # --- STEP 9: Save output ---
     scores = scores.reset_index()
     scores.to_csv(OUTPUT_FILE, index=False)
-    
+
+    # --- STEP 10: Save normalised scores in long format for Power BI ---
+    norm_columns = [i for i in index_indicators if i in scores.columns]
+
+    # Get latest row only
+    latest_row = scores[scores['date'] == scores['date'].max()]
+
+    # Melt to long format
+    norm_long = latest_row[['date'] + norm_columns].melt(
+    id_vars='date',
+    value_vars=norm_columns,
+    var_name='indicator',
+    value_name='normalised_score'
+    )
+
+    # Add weight and direction columns
+    norm_long['weight'] = norm_long['indicator'].map(
+    lambda x: WEIGHTS.get(x, 0)
+    )
+    norm_long['weight_pct'] = norm_long['weight'].map(
+    lambda x: f'{int(x*100)}%'
+    )
+    norm_long['direction'] = norm_long['indicator'].map(
+    lambda x: 'Relief' if INVERT.get(x, False) else 'Stress'
+    )
+
+    # Save
+    norm_output = os.path.join(PROCESSED_DIR, 'normalised_scores.csv')
+    norm_long.to_csv(norm_output, index=False)
+    print(f"Saved normalised scores to: {norm_output}")
+
     print(f"\nSaved stress index to: {OUTPUT_FILE}")
     print(f"Total months calculated: {len(scores)}")
     print(f"Earliest stress date: {scores['date'].min()}")

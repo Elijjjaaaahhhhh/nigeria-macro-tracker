@@ -1,0 +1,7 @@
+date,indicator,normalised_score,weight,weight_pct,direction
+2026-03-01,NGN/USD Exchange Rate,0.8256855591054313,0.25,25%,Stress
+2026-03-01,Inflation Rate YoY (%),0.378125,0.25,25%,Stress
+2026-03-01,Brent Crude Price (USD/barrel),0.29454545454545455,0.2,20%,Relief
+2026-03-01,External Reserves (USD Billion),0.3713333333333334,0.15,15%,Relief
+2026-03-01,Monetary Policy Rate (%),1.0,0.1,10%,Stress
+2026-03-01,Remittance Inflows (USD),0.03535213333231502,0.05,5%,Relief
